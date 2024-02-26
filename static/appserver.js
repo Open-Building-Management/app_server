@@ -39,13 +39,15 @@ async function deleteApp(del_route) {
 function showAppLinkNDelButton(data) {
     var open_label="OPEN APP";
     var token_txt="Your access token is "+data["token"];
-    var mqtt_txt="To post datas via MQTT, use port 1883 and topic emon_"+data["token"];
+    var mqtt_txt="To post datas via MQTT, use port 1883 and basetopic emon_"+data["token"]+" :";
     if (lang==="fr") {
         open_label="OUVRIR L'APP";
         token_txt="Votre code est "+data["token"];
-        mqtt_txt="Pour poster des données en MQTT, utiliser le port 1883 et le topic emon_"+data["token"]
+        mqtt_txt="Pour poster des données en MQTT, utiliser le port 1883 et la racine emon_"+data["token"]+" dans vos topics :";
     }
     var link = "<br>"+token_txt+"<br>"+mqtt_txt+"<br>";
+    link += "<code>mosquitto_pub -h "+window.location.hostname+" -p 1883 -u 'emonpi' -P 'emonpimqtt2016'";
+    link += " -t 'emon_dd6e3798af39/test/t3' -m 43.67</code></br>";
     link += "<a href="+data["app_url"]+" target=_blank>"+open_label+"</a><br><br>";
     document.querySelector('#open').innerHTML = link;
     document.querySelector('#loading').style.display = 'none';
