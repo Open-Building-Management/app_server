@@ -47,7 +47,7 @@ function showAppLinkNDelButton(data) {
     }
     var link = "<br>"+token_txt+"<br>"+mqtt_txt+"<br>";
     link += "<code>mosquitto_pub -h "+window.location.hostname+" -p 1883 -u 'emonpi' -P 'emonpimqtt2016'";
-    link += " -t 'emon_dd6e3798af39/test/t3' -m 43.67</code></br>";
+    link += " -t 'emon_"+data["token"]+"/test/t3' -m 43.67</code></br>";
     link += "<a href="+data["app_url"]+" target=_blank>"+open_label+"</a><br><br>";
     document.querySelector('#open').innerHTML = link;
     document.querySelector('#loading').style.display = 'none';
