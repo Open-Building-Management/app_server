@@ -1,2 +1,3 @@
-# app_server
-small app server
+# docker app server
+
+car.html n'est qu'un fichier pour tester le bon fonctionnement d'un carrousel bootstrap
