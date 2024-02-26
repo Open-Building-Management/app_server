@@ -39,11 +39,13 @@ async function deleteApp(del_route) {
 function showAppLinkNDelButton(data) {
     var open_label="OPEN APP";
     var token_txt="Your access token is "+data["token"];
+    var mqtt_txt="To post datas via MQTT, use port 1883 and topic emon_"+data["token"];
     if (lang==="fr") {
         open_label="OUVRIR L'APP";
         token_txt="Votre code est "+data["token"];
+        mqtt_txt="Pour poster des données en MQTT, utiliser le port 1883 et le topic emon_"+data["token"]
     }
-    var link = "<br>"+token_txt+"<br>";
+    var link = "<br>"+token_txt+"<br>"+mqtt_txt+"<br>";
     link += "<a href="+data["app_url"]+" target=_blank>"+open_label+"</a><br><br>";
     document.querySelector('#open').innerHTML = link;
     document.querySelector('#loading').style.display = 'none';
